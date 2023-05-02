@@ -1,21 +1,12 @@
 package ua.lviv.iot.algo.part1.lab5;
 
-import java.util.Scanner;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 
-public class TextForLab
-{
+public class TextForLab {
     private String text;
 
     public TextForLab replaceLastCharacterWithUpperCase() {
@@ -36,18 +27,26 @@ public class TextForLab
         return new TextForLab(this.text);
     }
 
-    public TextForLab createAndModifyFromConsoleInput() {
-        Scanner scanner = new Scanner(System.in);
-        this.text = scanner.nextLine();
-        TextForLab resultText = this.replaceLastCharacterWithUpperCase();
+    public TextForLab createAndModifyFromConsoleInput(String text) {
+        TextForLab inputText = new TextForLab(text);
+        TextForLab resultText = inputText.replaceLastCharacterWithUpperCase();
         System.out.println("\n" + "Result text: " + resultText.getText());
         return resultText;
     }
 
-    public static void main( String[] args )
-    {
+    public static void main(String[] args) {
         TextForLab textForLab = new TextForLab();
-        textForLab.createAndModifyFromConsoleInput();
+        textForLab.createAndModifyFromConsoleInput(Arrays.toString(args));
     }
 
+    public TextForLab(String text) {
+        this.text = text;
     }
+
+    public TextForLab() {
+    }
+
+    public String getText() {
+        return text;
+    }
+}

@@ -15,7 +15,7 @@ public class testTextForLab {
             InputStream inputStream = new ByteArrayInputStream(input.getBytes());
             System.setIn(inputStream);
             TextForLab textForLab = new TextForLab();
-            TextForLab result = textForLab.createAndModifyFromConsoleInput();
+            TextForLab result = textForLab.createAndModifyFromConsoleInput(input);
             assertEquals(expected, result.getText());
 
     }
