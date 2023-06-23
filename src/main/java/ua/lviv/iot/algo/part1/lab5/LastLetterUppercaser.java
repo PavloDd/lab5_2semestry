@@ -6,12 +6,14 @@ import java.util.regex.Pattern;
 
 
 
-public class TextForLab {
+public class LastLetterUppercaser {
     private String text;
+    public static final Pattern LAST_lETTER_UPPERCASE_PATTERN = Pattern.compile("(\\w)(\\W|$)");
+    // //^//w+//s+//b//w+//s+//b|$
+    public static final Pattern LIST_OF_STUDENTS_PATTERN = Pattern.compile("(^//w+//s//w+//s//w+)");
 
-    public TextForLab replaceLastCharacterWithUpperCase() {
-        Pattern pattern = Pattern.compile("(\\w)(\\W|$)");
-        Matcher matcher = pattern.matcher(this.text);
+    public LastLetterUppercaser replaceLastCharacterWithUpperCase() {
+        Matcher matcher = LAST_lETTER_UPPERCASE_PATTERN.matcher(this.text);
         StringBuilder stringBuilder = new StringBuilder();
         int lastMatchEnd = 0;
         while (matcher.find()) {
@@ -24,26 +26,26 @@ public class TextForLab {
         }
         stringBuilder.append(this.text.substring(lastMatchEnd));
         this.text = stringBuilder.toString();
-        return new TextForLab(this.text);
+        return new LastLetterUppercaser(this.text);
     }
 
-    public TextForLab createAndModifyFromConsoleInput(String text) {
-        TextForLab inputText = new TextForLab(text);
-        TextForLab resultText = inputText.replaceLastCharacterWithUpperCase();
+    public LastLetterUppercaser createAndModifyFromConsoleInput(String text) {
+        LastLetterUppercaser inputText = new LastLetterUppercaser(text);
+        LastLetterUppercaser resultText = inputText.replaceLastCharacterWithUpperCase();
         System.out.println("\n" + "Result text: " + resultText.getText());
         return resultText;
     }
 
     public static void main(String[] args) {
-        TextForLab textForLab = new TextForLab();
+        LastLetterUppercaser textForLab = new LastLetterUppercaser();
         textForLab.createAndModifyFromConsoleInput(Arrays.toString(args));
     }
 
-    public TextForLab(String text) {
+    public LastLetterUppercaser(String text) {
         this.text = text;
     }
 
-    public TextForLab() {
+    public LastLetterUppercaser() {
     }
 
     public String getText() {

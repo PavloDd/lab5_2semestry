@@ -6,7 +6,7 @@ import java.io.InputStream;
 
 import static org.junit.Assert.assertEquals;
 
-public class testTextForLab {
+public class testLastLetterUppercaser {
 
     @Test
     public void testCreateAndModifyFromConsoleInput (){
@@ -14,8 +14,8 @@ public class testTextForLab {
             String expected = "ThiS iS A samplE inpuT.";
             InputStream inputStream = new ByteArrayInputStream(input.getBytes());
             System.setIn(inputStream);
-            TextForLab textForLab = new TextForLab();
-            TextForLab result = textForLab.createAndModifyFromConsoleInput(input);
+            LastLetterUppercaser textForLab = new LastLetterUppercaser();
+            LastLetterUppercaser result = textForLab.createAndModifyFromConsoleInput(input);
             assertEquals(expected, result.getText());
 
     }
